@@ -14,8 +14,8 @@ public final class Solution {
                 .filter(student -> student.getGrade().isPresent()) // Containing Object within Optional is not null
                 .filter(student -> Objects.nonNull(student.getGrade().get().getValue())) // Grade object's value is not null
                 .filter(student -> student.getGrade().get().getValue().compareTo("C") <= 0)
-                .sorted((student1, student2)-> student1.getGrade().get().getValue()
-                        .compareTo(student2.getGrade().get().getValue()))
+                .sorted((student1, student2)-> student2.getGrade().get().getValue()
+                        .compareTo(student1.getGrade().get().getValue()))
                 .map(student -> student.getName())
                 .distinct()
                 //.filter(name -> duplication.add(name))
