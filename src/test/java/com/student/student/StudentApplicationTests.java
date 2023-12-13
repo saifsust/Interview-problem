@@ -20,7 +20,7 @@ class StudentApplicationTests {
 	// identification
 
 	// Case 1 // many variant
-	// student -> A, B, C, D, E, F => if sequence => A > B > C > D > E > F | ans => A, B, C
+	// student -> A, B, C, D, E, F => if sequence => A < B < C > D < E < F | ans => F , E, D, C
 	// Case 2
 	// student -> null => ignore / skip -> result is not counted
 	// case 3
@@ -42,7 +42,7 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Joytee dada", Optional.of(new Grade("B"))));
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Nabil", "Sadia Afrose","Shyfuzzaman bhai",  "Joytee dada");
+		List<String> expectedResult = Arrays.asList( "Saiful Islam", "Sadia Afrose", "Russel Bhai","Masud bhai",  "Ponir Dada");
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
@@ -64,7 +64,7 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Joytee dada", Optional.of(new Grade("B"))));
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Mahmud Hasan","Mahmud Hasan", "Nabil", "Sadia Afrose", "Sadia Afrose","Shyfuzzaman bhai",  "Joytee dada");
+		List<String> expectedResult = Arrays.asList( "Saiful Islam", "Sadia Afrose","Sadia Afrose","Russel Bhai","Masud bhai",  "Ponir Dada");
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
