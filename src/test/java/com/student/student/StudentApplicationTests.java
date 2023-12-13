@@ -42,7 +42,7 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Joytee dada", Optional.of(new Grade("B"))));
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Shyfuzzaman bhai","Nabil", "Joytee dada", "Sadia Afrose");
+		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
@@ -64,7 +64,7 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Joytee dada", Optional.of(new Grade("B"))));
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Shyfuzzaman bhai","Nabil", "Joytee dada", "Sadia Afrose");
+		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
@@ -87,7 +87,7 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 		studentDataPreparation.add(null);
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Shyfuzzaman bhai","Nabil", "Joytee dada", "Sadia Afrose");
+		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
 
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
@@ -113,7 +113,7 @@ class StudentApplicationTests {
 
 		studentDataPreparation.add(null);
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Shyfuzzaman bhai","Nabil", "Joytee dada", "Sadia Afrose");
+		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
 
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
@@ -140,7 +140,7 @@ class StudentApplicationTests {
 
 		studentDataPreparation.add(null);
 
-		List<String> expectedResult = Arrays.asList( "Mahmud Hasan", "Shyfuzzaman bhai","Nabil", "Joytee dada", "Sadia Afrose");
+		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
 
 		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
