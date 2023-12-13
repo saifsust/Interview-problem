@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 public final class Solution {
 
     public List<String> getStudentsAboveGrade (List<Student> students) {
-        Set<String> duplication = new HashSet<>();
         return students
                 .stream()
                 .filter(Objects::nonNull)
@@ -14,11 +13,7 @@ public final class Solution {
                 .filter(student -> student.getGrade().isPresent()) // Containing Object within Optional is not null
                 .filter(student -> Objects.nonNull(student.getGrade().get().getValue())) // Grade object's value is not null
                 .filter(student -> student.getGrade().get().getValue().compareTo("C") <= 0)
-                .sorted((student1, student2)-> student2.getGrade().get().getValue()
-                        .compareTo(student1.getGrade().get().getValue()))
                 .map(student -> student.getName())
-                .distinct()
-                //.filter(name -> duplication.add(name))
                 .collect(Collectors.toList());
     }
 }
