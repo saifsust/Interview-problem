@@ -1,3 +1,11 @@
+### Experience on Interview
+I had asked a lots of questions before starting coding part. My strategy is to find out the requirements before starting.
+my questions was such as
+* What will be higher grade?
+* Can any student be null or not
+* Can grade Object / or gradeValue be null or not
+* I write down all of cases first. Then start to write code when interviewer ask me to write code
+* I think requirements analysis must be needed before starting. 
 ### Question
 * Q1: find the list of student whose grade is higher or equal to B. All grades are A, B, C, D, E, F. The sequence of all grades are A > B > C > D > E > F   
 * Q2: find the list of Employees whose department is CSE , age is greater or equals to 28.0 and salary is less than or equals 40000
