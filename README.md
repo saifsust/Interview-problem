@@ -109,3 +109,6 @@ public class TestConfiguration{
 
 ### Practice Environment
 Interviewer take interview using [Link](https://codeshare.io/X8RgvY)
+
+### JDK coding Principal
+Follow the oracle principal [Link](https://www.oracle.com/java/technologies/javase/codeconventions-contents.html)
