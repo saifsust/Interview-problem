@@ -1,6 +1,9 @@
 package com.student.student;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public final class Solution {
@@ -9,18 +12,19 @@ public final class Solution {
      * @param employees
      * @return
      */
-    public String getEmployee(List<Employee> employees){
-        return employees
+    public Map<String, List<Employee>> getEmployee(List<Employee> employees){
+        Map<String, List<Employee>> grouping = new HashMap<>();
+        employees
                 .stream()
                 .filter(Objects::nonNull)
-                .filter(employee -> employee.department().name().compareTo("CSE") == 0)
-                .filter(employee -> employee.age() >= 28.0F)
-                .filter(employee -> employee.salary() <= 40000)
-                .sorted((employees1, employees2) -> employees2.salary() - employees1.salary())
-                .map(employee -> employee.name())
-                .distinct()
-                .findFirst()
-                //.orElse("Saiful Islam")
-                .orElseThrow(() -> new NullPointerException("No Employee is found"));
+                .filter(employee -> employee.getAge()>= 24.0)
+                .filter(employee -> employee.getSalary() >= 28000)
+                .forEach(employee -> {
+                    if(grouping.get(employee.getDepartment()) == null){
+                        grouping.put(employee.getDepartment(), new ArrayList<>());
+                    }
+                    grouping.get(employee.getDepartment()).add(employee);
+                });
+        return grouping;
     }
 }
