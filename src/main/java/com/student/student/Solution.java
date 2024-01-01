@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public final class Solution {
     /**
@@ -14,11 +13,18 @@ public final class Solution {
      * @return
      */
     public Map<String, List<Employee>> getEmployee(List<Employee> employees){
-       return employees
-               .stream()
-               .filter(Objects::nonNull)
-               .filter(employee -> employee.getSalary() >= 28000)
-               .filter(employee -> employee.getAge() >= 28.0)
-               .collect(Collectors.groupingBy(employee -> employee.getDepartment()));
+        Map<String, List<Employee>> grouping = new HashMap<>();
+        employees
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(employee -> employee.getAge()>= 24.0)
+                .filter(employee -> employee.getSalary() >= 28000)
+                .forEach(employee -> {
+                    if(grouping.get(employee.getDepartment()) == null){
+                        grouping.put(employee.getDepartment(), new ArrayList<>());
+                    }
+                    grouping.get(employee.getDepartment()).add(employee);
+                });
+        return grouping;
     }
 }
