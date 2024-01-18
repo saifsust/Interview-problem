@@ -42,8 +42,8 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Joytee dada", Optional.of(new Grade("B"))));
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 
-		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
-		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
+		var expectedResult = Arrays.asList( "A", "B", "F");
+		var actualResult = solution.getGrades(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
 
@@ -64,8 +64,8 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Joytee dada", Optional.of(new Grade("B"))));
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 
-		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
-		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
+		var expectedResult = Arrays.asList( "A", "B", "F");
+		var actualResult = solution.getGrades(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
 
@@ -87,9 +87,9 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Ponir Dada", Optional.of(new Grade("F"))));
 		studentDataPreparation.add(null);
 
-		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
+		var expectedResult = Arrays.asList( "A", "B", "F");
 
-		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
+		var actualResult = solution.getGrades(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
 
@@ -109,14 +109,9 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Rahul Dada", Optional.ofNullable(null)));
 		studentDataPreparation.add(new Student("Sarawer bhai", null));
 		studentDataPreparation.add(new Student("Hafiz bhai", Optional.ofNullable(new Grade(null))));
-
-
 		studentDataPreparation.add(null);
+		Assertions.assertThrows(NullPointerException.class , ()-> solution.getGrades(studentDataPreparation));
 
-		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
-
-		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
-		Assertions.assertEquals(expectedResult, actualResult);
 	}
 
 
@@ -136,13 +131,9 @@ class StudentApplicationTests {
 		studentDataPreparation.add(new Student("Rahul Dada", Optional.of(new Grade("P"))));
 		studentDataPreparation.add(new Student("Sarawer bhai", Optional.of(new Grade("H"))));
 		studentDataPreparation.add(new Student("Hafiz bhai", Optional.of(new Grade("K"))));
-
-
 		studentDataPreparation.add(null);
-
-		List<String> expectedResult = Arrays.asList( "Sadia Afrose", "Nabil", "Joytee dada", "Mahmud Hasan", "Shyfuzzaman bhai");
-
-		List<String> actualResult = solution.getStudentsAboveGrade(studentDataPreparation);
+		var expectedResult = Arrays.asList( "A", "B", "F");
+		var actualResult = solution.getGrades(studentDataPreparation);
 		Assertions.assertEquals(expectedResult, actualResult);
 	}
 

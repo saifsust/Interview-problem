@@ -1,24 +1,25 @@
 package com.student.student;
 
-import java.util.*;
+import io.micrometer.common.util.StringUtils;
+
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public final class Solution {
 
-    public List<String> getStudentsAboveGrade (List<Student> students) {
-        Set<String> duplication = new HashSet<>();
+    public List<String> getGrades (List<Student> students) {
         return students
                 .stream()
                 .filter(Objects::nonNull)
-                .filter(student -> Objects.nonNull(student.getGrade())) // Optional Grade object is not null
-                .filter(student -> student.getGrade().isPresent()) // Containing Object within Optional is not null
-                .filter(student -> Objects.nonNull(student.getGrade().get().getValue())) // Grade object's value is not null
-                .filter(student -> student.getGrade().get().getValue().compareTo("C") <= 0)
-                .sorted((student1, student2)-> student2.getGrade().get().getValue()
-                        .compareTo(student1.getGrade().get().getValue()))
-                .map(student -> student.getName())
                 .distinct()
-                //.filter(name -> duplication.add(name))
+                .filter(student -> student.getGrade().isPresent())
+                .filter(student -> !StringUtils.isEmpty(student.getGrade().get().getValue()))
+                .collect(Collectors.groupingBy(student->student.getGrade().get().getValue()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().size() > 1)
+                .map(entry -> entry.getKey())
                 .collect(Collectors.toList());
     }
 }
